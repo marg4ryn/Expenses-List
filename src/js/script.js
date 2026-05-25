@@ -16,17 +16,20 @@ const storage = {
 const state = {
   expenses: storage.load(),
   filter: '',
-  sortAsc: true,
+  sortByName: true,
+  sortByNameAsc: true,
+  sortByPriceAsc: false,
 };
 
 const elements = {
   form: document.querySelector('form'),
   list: document.querySelector('ul'),
   filter: document.getElementById('filter'),
-  sortBtn: document.getElementById('sortBtn'),
-  blankMsg: document.getElementById('blankListMsg'),
   nameInput: document.getElementById('fname'),
   priceInput: document.getElementById('fprice'),
+  blankMsg: document.getElementById('blankListMsg'),
+  sortByNameBtn: document.getElementById('sortByNameBtn'),
+  sortByPriceBtn: document.getElementById('sortByPriceBtn'),
 };
 
 elements.filter.addEventListener('input', () => {
@@ -34,8 +37,17 @@ elements.filter.addEventListener('input', () => {
   render();
 });
 
-elements.sortBtn.addEventListener('click', () => {
-  state.sortAsc = !state.sortAsc;
+elements.sortByNameBtn.addEventListener('click', () => {
+  state.sortByNameAsc = !state.sortByNameAsc;
+  state.sortByPriceAsc = true;
+  state.sortByName = true;
+  render();
+});
+
+elements.sortByPriceBtn.addEventListener('click', () => {
+  state.sortByPriceAsc = !state.sortByPriceAsc;
+  state.sortByNameAsc = false;
+  state.sortByName = false;
   render();
 });
 
@@ -69,9 +81,13 @@ function getVisibleExpenses() {
       return expense.name.toLowerCase().includes(state.filter);
     })
     .sort((a, b) => {
-      return state.sortAsc
-        ? a.name.localeCompare(b.name)
-        : b.name.localeCompare(a.name);
+      return state.sortByName
+        ? state.sortByNameAsc
+          ? a.name.localeCompare(b.name)
+          : b.name.localeCompare(a.name)
+        : state.sortByPriceAsc
+          ? a.price - b.price
+          : b.price - a.price;
     });
 }
 
@@ -88,10 +104,24 @@ function render() {
   });
 }
 
-function createExpenseElement(expense) {
+function createExpenseElement({ id, name, price }) {
   const li = document.createElement('li');
-  li.textContent = `${expense.name}: ${expense.price}`;
-  li.dataset.id = expense.id;
+
+  li.dataset.id = id;
+
+  const spans = [
+    name,
+    `${Number(price).toLocaleString('pl-PL', {
+      minimumFractionDigits: 2,
+    })} zł`,
+  ];
+
+  spans.forEach((text) => {
+    const span = document.createElement('span');
+    span.textContent = text;
+    li.appendChild(span);
+  });
+
   return li;
 }
 

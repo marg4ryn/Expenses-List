@@ -148,6 +148,10 @@ ul li {
   animation: slideIn 0.15s ease;
 }
 
+ul li:hover {
+  background: var(--color-bg);
+}
+
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -268,7 +272,7 @@ form button[type='submit']:active {
 
 /* ── Responsive ── */
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   main {
     grid-template-columns: 1fr;
     margin: 1rem auto;

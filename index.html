@@ -16,11 +16,16 @@
     <main>
       <section class="left">
         <div class="btnContainer">
-          <button type="button" id="sortBtn" class="button">Sort</button>
+          <button type="button" id="sortByNameBtn" class="button">
+            Sort by Name
+          </button>
           <div class="filterContainer">
             <label for="filter">Filter</label>
             <input type="text" id="filter" autocomplete="off" />
           </div>
+          <button type="button" id="sortByPriceBtn" class="button">
+            Sort by Price
+          </button>
         </div>
         <ul id="expenseList"></ul>
         <p id="blankListMsg" aria-live="polite">No expenses</p>
@@ -36,6 +41,7 @@
                 type="text"
                 id="fname"
                 name="name"
+                maxlength="40"
                 autocomplete="on"
                 placeholder="Expense Name"
                 required
@@ -48,6 +54,7 @@
                 id="fprice"
                 name="price"
                 min="0.01"
+                max="999999999.99"
                 step="0.01"
                 placeholder="Expense Price"
                 required
