@@ -1,0 +1,30 @@
+{
+  "name": "expenses-list",
+  "version": "1.0.0",
+  "description": "immutable updates\r event delegation\r storage\r podział state / render / action\r defensywne kopiowanie\r guard clause / early return",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marg4ryn/Expenses-List.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/marg4ryn/Expenses-List/issues"
+  },
+  "homepage": "https://github.com/marg4ryn/Expenses-List#readme",
+  "devDependencies": {
+    "@eslint/css": "^1.2.0",
+    "@eslint/js": "^10.0.1",
+    "@eslint/json": "^1.2.0",
+    "eslint": "^10.4.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.6.0",
+    "prettier": "^3.8.3"
+  }
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <script src="./src/js/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>List of Expenses</h1>
+    </header>
+
+    <main>
+      <section class="left">
+        <div class="btnContainer">
+          <button type="button" id="sortBtn" class="button">Sort</button>
+          <div class="filterContainer">
+            <label for="filter">Filter</label>
+            <input type="text" id="filter" />
+          </div>
+        </div>
+        <ul></ul>
+        <p id="blankListMsg">No expenses</p>
+      </section>
+
+      <section class="right">
+        <form>
+          <h2>Add new item</h2>
+          <div>
+            <label for="fname">Name</label>
+            <input type="text" id="fname" required />
+          </div>
+          <div>
+            <label for="fprice">Price</label>
+            <input type="number" id="fprice" min="0.01" step="0.01" required />
+          </div>
+          <button type="submit">Add</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

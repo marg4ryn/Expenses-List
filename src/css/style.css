@@ -1,0 +1,123 @@
+:root {
+  --color-1: #2c2627;
+  --color-2: #bc2c3d;
+  --color-3: #f8f3e6;
+  --color-4: #efd2bc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header {
+  background-color: var(--color-1);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: medium;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex: 1;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  background-color: var(--color-3);
+  padding: 10px;
+  gap: 10px;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.btnContainer button {
+  width: 60px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.right {
+  display: flex;
+  max-width: 250px;
+  background-color: var(--color-2);
+  color: white;
+  padding: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+form h2 {
+  text-align: center;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+input,
+button {
+  background-color: white;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+ul {
+  width: 100%;
+  list-style: none;
+}
+
+li {
+  background: white;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  main {
+    flex-direction: column;
+  }
+
+  .right {
+    width: 100%;
+    max-width: none;
+    justify-content: center;
+  }
+}
