@@ -33,9 +33,9 @@ function createExpenseElement({ id, name, price }) {
 
   const priceSpan = document.createElement('span');
   priceSpan.textContent =
-    Number(price).toLocaleString('pl-PL', {
+    Number(price).toLocaleString('en-US', {
       minimumFractionDigits: 2,
-    }) + ' zł';
+    }) + ' $';
 
   li.appendChild(nameSpan);
   li.appendChild(priceSpan);
