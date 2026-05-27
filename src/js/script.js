@@ -15,10 +15,8 @@ const storage = {
 
 const state = {
   expenses: storage.load(),
+  sort: { by: 'name', asc: true },
   filter: '',
-  sortByName: true,
-  sortByNameAsc: true,
-  sortByPriceAsc: false,
 };
 
 const elements = {
@@ -38,16 +36,12 @@ elements.filter.addEventListener('input', () => {
 });
 
 elements.sortByNameBtn.addEventListener('click', () => {
-  state.sortByNameAsc = !state.sortByNameAsc;
-  state.sortByPriceAsc = true;
-  state.sortByName = true;
+  state.sort = { by: 'name', asc: !state.sort.asc };
   render();
 });
 
 elements.sortByPriceBtn.addEventListener('click', () => {
-  state.sortByPriceAsc = !state.sortByPriceAsc;
-  state.sortByNameAsc = false;
-  state.sortByName = false;
+  state.sort = { by: 'price', asc: !state.sort.asc };
   render();
 });
 
@@ -81,11 +75,11 @@ function getVisibleExpenses() {
       return expense.name.toLowerCase().includes(state.filter);
     })
     .sort((a, b) => {
-      return state.sortByName
-        ? state.sortByNameAsc
+      return state.sort.by === 'name'
+        ? state.sort.asc
           ? a.name.localeCompare(b.name)
           : b.name.localeCompare(a.name)
-        : state.sortByPriceAsc
+        : state.sort.asc
           ? a.price - b.price
           : b.price - a.price;
     });

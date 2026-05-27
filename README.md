@@ -13,8 +13,7 @@
 
 ## To Do
 
-- Redux
-- Lodash
+- debounce
 - custom mini framework
 - rewrite to TypeScript
 
