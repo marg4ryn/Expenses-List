@@ -16,6 +16,7 @@
 - debounce
 - custom mini framework
 - rewrite to TypeScript
+- keyed diffing
 
 ---
 
